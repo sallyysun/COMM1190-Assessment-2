@@ -145,3 +145,5 @@ testtable_prepostprun
     #Predict 30 People
 predicttree_base <- predict(tree_prepostprun, DataPredict, type = "class")
 predicttree_base
+PredictWillLeave <- Dataset0 %>% filter(EmployeeNumber=="2080")
+glimpse(PredictWillLeave)
