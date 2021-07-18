@@ -3,6 +3,9 @@ library(readxl)
 library(rpart)
 library(rpart.plot)
 library(dplyr)
+library(ggplot2)
+library(lattice)
+library(caret)
 
 #Read Data
 Dataset0 <- read_excel("D:/UNSW/1st Year/T2/COMM1190/Assignment 2/A2_Dataset_V2.xlsx")
@@ -86,6 +89,17 @@ predicttree_base <- predict(tree_preprun, DataPredict, type = "class")
 predicttree_base
 
   #3.Post-pruning
+tree_postprunCP <- train(
+  Attrition ~., data = DataTrain, method = "rpart",
+  trControl = trainControl("cv", number = 10),
+  tuneLength = 10
+)
+plot(tree_postprunCP)
+tree_postprunCP$bestTune
+
+tree_base <- rpart(Attrition ~ ., data=DataTrain, method="class", 
+                   control=rpart.control(cp=0))
+
 tree_postprun <- prune(tree_base, cp = 0.0092)
 rpart.plot(tree_postprun)
 
@@ -147,3 +161,9 @@ predicttree_base <- predict(tree_prepostprun, DataPredict, type = "class")
 predicttree_base
 PredictWillLeave <- Dataset0 %>% filter(EmployeeNumber=="2080")
 glimpse(PredictWillLeave)
+
+
+#5. More Tuning
+modelLookup('rpart')
+model_rpart <- train(Attrition ~., data=DataTrain, method='rpart')
+model_rpart
