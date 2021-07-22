@@ -13,7 +13,7 @@ Dataset <- na.omit(Dataset0)
 DataPredict <- Dataset0 %>% filter(is.na(Attrition))
 
 #Split Data
-set.seed(3) 
+set.seed(1) 
 train <- sample(nrow(Dataset), nrow(Dataset)*0.8)
 DataTrain <- Dataset[train, ]
 DataTest <- Dataset[-train, ]
@@ -32,6 +32,7 @@ plotcp(tree_base)
 traintree_base <- predict(tree_base, DataTrain, type = "class")
 traintable_base <- table(traintree_base,DataTrain$Attrition)
 traintable_base
+
       #Accuracy No = 0.9667812
 844/(844+29)
       #Accuracy Yes = 0.5092025
