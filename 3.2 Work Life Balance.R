@@ -252,7 +252,7 @@ Dataset %>% filter(OverTime=="Yes") %>%
   xlab("Attrition")
 
 #Overtime ~ Attrition (far from home)
-Dataset %>% filter(DistanceFromHome>30) %>%
+Dataset %>% filter(DistanceFromHome>35) %>%
   ggplot(aes(fill=Attrition,y=100,x=OverTime)) + 
   geom_bar(position="fill", stat="identity") +
   theme_few() +
@@ -267,7 +267,7 @@ Dataset %>% filter(DistanceFromHome>30) %>%
     legend.text = element_text(size=7.5)
   ) +
   labs (fill="Attrition") +
-  ggtitle("Employee Attrition against Working Overtime\n Living Over 30km from Home") +
+  ggtitle("Employee Attrition against Working Overtime\n Living Over 35km from Home") +
   ylab("Employee Attrition Percentage") +
   xlab("Overtime") +
   scale_y_continuous(labels = scales::percent)

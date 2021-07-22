@@ -34,7 +34,7 @@ Dataset <- na.omit(Dataset0)
 DataPredict <- Dataset0 %>% filter(is.na(Attrition))
 
 #Split Data
-set.seed(3) 
+set.seed(1) 
 train <- sample(nrow(Dataset), nrow(Dataset)*0.8)
 DataTrain <- Dataset[train, ]
 DataTest <- Dataset[-train, ]
@@ -102,9 +102,9 @@ predict_11[testpredict_1 > 0.5] <- "Yes"
 table(predict_11, DataTest$Attrition)
 
     #Accuracy No = 0.957346
-202/(200+11)
+202/(202+9)
     #Accuracy Yes = 0.375
-18/(20+28)
+18/(18+30)
     #Accuracy = 0.8494208
 (202+18)/nrow(DataTest)
 
@@ -171,9 +171,9 @@ predict_3 <- rep("No", nrow(DataTrain))
 predict_3[trainpredict_3 > 0.5] <- "Yes" 
 table(predict_3, DataTrain$Attrition)
 #Accuracy No = 0.9725086
-849/(846+27)
+849/(849+24)
 #Accuracy Yes = 0.3680982
-60/(67+96)
+60/(60+103)
 #Accuracy = 0.8774131
 (849+60)/nrow(DataTrain)
 
@@ -184,9 +184,9 @@ predict_31[testpredict_3 > 0.5] <- "Yes"
 table(predict_31, DataTest$Attrition)
 
 #Accuracy No = 0.9383886
-198/(200+11)
+198/(198+13)
 #Accuracy Yes = 0.25
-12/(21+27)
+12/(12+36)
 #Accuracy = 0.8108108
 (198+12)/nrow(DataTest)
 
@@ -213,9 +213,9 @@ predict_4 <- rep("No", nrow(DataTrain))
 predict_4[trainpredict_4 > 0.5] <- "Yes" 
 table(predict_4, DataTrain$Attrition)
 #Accuracy No = 0.9725086
-849/(846+27)
+849/(849+24)
 #Accuracy Yes = 0.4355828
-71/(67+96)
+71/(71+92)
 #Accuracy = 0.8880309
 (849+71)/nrow(DataTrain)
 
@@ -226,9 +226,9 @@ predict_41[testpredict_4 > 0.5] <- "Yes"
 table(predict_41, DataTest$Attrition)
 
 #Accuracy No = 0.92891
-196/(200+11)
+196/(196+15)
 #Accuracy Yes = 0.5
-27/(20+27)
+24/(24+24)
 #Accuracy = 0.8494208
 (196+24)/nrow(DataTest)
 
