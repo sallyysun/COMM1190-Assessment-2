@@ -214,10 +214,10 @@ predict_4[trainpredict_4 > 0.5] <- "Yes"
 table(predict_4, DataTrain$Attrition)
 #Accuracy No = 0.9725086
 849/(849+24)
-#Accuracy Yes = 0.4355828
-71/(71+92)
-#Accuracy = 0.8880309
-(849+71)/nrow(DataTrain)
+#Accuracy Yes = 0.5644172
+92/(71+92)
+#Accuracy = 0.9083012
+(849+92)/nrow(DataTrain)
 
 #Testing Accuracy
 testpredict_4 <- predict(DataTrain_4, newdata = DataTest, type = "response") 
@@ -225,12 +225,12 @@ predict_41 <- rep("No", nrow(DataTest))
 predict_41[testpredict_4 > 0.5] <- "Yes" 
 table(predict_41, DataTest$Attrition)
 
-#Accuracy No = 0.92891
-196/(196+15)
-#Accuracy Yes = 0.5
-24/(24+24)
-#Accuracy = 0.8494208
-(196+24)/nrow(DataTest)
+#Accuracy No = 0.957346
+202/(202+9)
+#Accuracy Yes = 0.5744681
+27/(20+27)
+#Accuracy = 0.8841699
+(202+27)/nrow(DataTest)
 
 #Predict 30 People
 predictpredict_4 <- predict(DataTrain_4, newdata = DataPredict, type = "response") 
